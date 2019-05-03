@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>reading file</title>
+   </head>
+<body>
+
+<input type="file" id="myFile" value="test.txt">
+<button onclick="myFunction()" id="hello" value="test.txt">Click me</button>
+
+<!--<div style="width: 300px;height: 0px" id="output"></div>-->
+<textarea style="width:500px;height: 400px" id="output"></textarea>
+
+<script>
+var input = document.getElementById("myFile");
+var output = document.getElementById("output");
+
+input.addEventListener("change", function () {
+  if (this.files && this.files[0]) {
+    var myFile = this.files[0];
+    var reader = new FileReader();
+
+    reader.addEventListener('load', function (e) {
+      output.textContent = e.target.result;
+    });
+
+    reader.readAsBinaryString(myFile);
+  }
+});
+
+function myFunction() {
+var input = document.getElementById("hello");
+var output = document.getElementById("output");
+
+ if (this.files && this.files[0]) {
+    var hello = this.files[0];
+    var reader = new FileReader();
+
+    reader.addEventListener('load', function (e) {
+      output.textContent = e.target.result;
+    });
+
+    reader.readAsBinaryString(hello);
+  }
+
+</script>
+  </body>
+</html>
